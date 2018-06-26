@@ -74,14 +74,16 @@ app.get("/", (req, res)=>{
   res.send("hello from root")
 })
 
-app.get("users", (req, res) =>{
+//start refactor
+const router = require('./routes/user.js')
 
-  var user1 = {firstName: "stephen", lastName: "curry"}
-  const user2 = {firstName: "kevin", lastName: "durant"}
 
-  res.json([user1, user2])
-  res.send("nodemon auto updates when i save this file")
-})
+//router.get('/foo', )
+
+app.use(router)
+
+
+
 
 
 
